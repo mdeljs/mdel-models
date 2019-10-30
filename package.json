@@ -1,0 +1,41 @@
+{
+  "name": "mdel-models",
+  "version": "1.0.0",
+  "description": "一些数据模型",
+  "license": "MIT",
+  "repository": "github:mdeljs/mdel-models",
+  "bugs": "https://github.com/mdeljs/mdel-models/issues",
+  "keywords": [
+    "mdel",
+    "model",
+    "models"
+  ],
+  "author": {
+    "name": "yujingwyh",
+    "email": "yujingwyh@163.com"
+  },
+  "scripts": {
+    "build": "rollup --config"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "es",
+    "examples"
+  ],
+  "module": "es",
+  "typings": "es",
+  "dependencies": {
+    "mdel": "^6.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-transform-typescript": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "rollup": "^1.26.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "typescript": "^3.6.4"
+  }
+}
