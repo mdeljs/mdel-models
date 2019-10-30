@@ -15,6 +15,7 @@
     "email": "yujingwyh@163.com"
   },
   "scripts": {
+    "start": "node ./node_modules/parcel-bundler/bin/cli.js ./examples/index.html",
     "build": "rollup --config"
   },
   "files": [
@@ -26,13 +27,21 @@
   "module": "es",
   "typings": "es",
   "dependencies": {
-    "mdel": "^6.0.1"
+    "antd": "^3.24.3",
+    "mdel": "^6.0.1",
+    "react-dom": "^16.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/plugin-transform-typescript": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
+    "@types/react": "^16.9.11",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "mdel-react": "^6.0.2",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.11.0",
     "rollup": "^1.26.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-typescript2": "^0.24.3",
