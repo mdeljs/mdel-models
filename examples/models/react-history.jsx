@@ -15,11 +15,11 @@ export default class ReactHistoryExample extends React.Component{
       search:{this.sHistory.data.search}<br/>
 
       <a onClick={()=>{
-        this.sHistory.changeUrl('/user');
+        this.sHistory.changeUrl('/user?page=1');
       }}>changeUrl</a>&emsp;
       <a onClick={()=>{
         this.sHistory.changeQuery({
-          page:1
+          page:2
         })
       }}>changeQuery</a>
     </div>

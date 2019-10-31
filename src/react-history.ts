@@ -45,7 +45,7 @@ export default class HistoryModel extends Model<IData> {
   }
 
   private updateData(location) {
-    const query = qs.parse(location.search);
+    const query = qs.parse(location.search.replace(/^\?/,''));
 
     this.setData({
       pathname: location.pathname,

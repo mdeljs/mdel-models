@@ -56,7 +56,7 @@ var HistoryModel = /** @class */ (function (_super) {
         this.history.goBack();
     };
     HistoryModel.prototype.updateData = function (location) {
-        var query = qs.parse(location.search);
+        var query = qs.parse(location.search.replace(/^\?/, ''));
         this.setData({
             pathname: location.pathname,
             search: location.search,
