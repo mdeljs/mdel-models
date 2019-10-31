@@ -1,5 +1,4 @@
 import {Model} from 'mdel'
-import {createBrowserHistory} from "history";
 import qs from 'qs'
 
 
@@ -13,45 +12,45 @@ interface IData {
     query: IQuery
 }
 
-export default new class HistoryModel extends Model<IData> {
-    history;
 
-    constructor() {
-        super({
-            pathname: '',
-            search: '',
-            query: {}
-        });
+export default class HistoryModel extends Model<IData> {
+  history;
 
-        this.history = createBrowserHistory();
+  constructor(history) {
+    super({
+      pathname: '',
+      search: '',
+      query: {}
+    });
 
-        this.updateData(this.history.location);
-        this.history.listen(location => this.updateData(location));
-    }
+    this.history = history;
 
-    changeQuery(query: IQuery) {
-        this.history.push({
-            pathname: this.data.pathname,
-            search: qs(query)
-        })
-    }
+    this.updateData(this.history.location);
+    this.history.listen(location => this.updateData(location));
+  }
 
-    changeUrl(url: string) {
-        this.history.push(url)
-    }
+  changeQuery(query: IQuery) {
+    this.history.push({
+      pathname: this.data.pathname,
+      search: qs.stringify(query)
+    })
+  }
 
-    goBack() {
-        this.history.goBack();
-    }
+  changeUrl(url: string) {
+    this.history.push(url)
+  }
 
-    private updateData(location) {
-        const query = qs(location.search);
-        const newData = {
-            pathname: location.pathname,
-            search: location.search,
-            query
-        };
-        // @ts-ignore
-        this.setData(newData)
-    }
+  goBack() {
+    this.history.goBack();
+  }
+
+  private updateData(location) {
+    const query = qs.parse(location.search);
+
+    this.setData({
+      pathname: location.pathname,
+      search: location.search,
+      query
+    })
+  }
 }

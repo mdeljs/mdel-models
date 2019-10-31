@@ -5,8 +5,15 @@ import pkg from './package.json'
 
 const models = [
   'item',
-  'modal'
+  'modal',
+  'react-history'
 ];
+const overrideTsConfig = {
+  compilerOptions: {
+    "rootDir": "src",
+    declaration: true
+  }
+};
 
 export default models.map(fileName => createCompilerOptions(fileName))
 
@@ -21,6 +28,7 @@ function createCompilerOptions(fileName) {
     plugins: [
       typescript({
         tsconfig: "tsconfig.json",
+        tsconfigOverride: overrideTsConfig
       }),
       babel()
     ]

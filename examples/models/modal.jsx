@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {Modal} from "antd";
 import {observe} from "mdel-react";
 import ModalModel from "../../es/modal";
@@ -17,13 +17,13 @@ export default class ModalExample extends React.Component {
 
   render() {
     return <div>
-      <h2 onClick={() => {
+      <a onClick={() => {
         ModalModel.show(this, {
           title: '修改'
         })
       }}>
         打开弹窗
-      </h2>
+      </a>
       <Modal
         visible={this.sModal.data.visible}
         title={this.sModal.data.payload.title}

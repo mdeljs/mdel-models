@@ -27,9 +27,8 @@
   "module": "es",
   "typings": "es",
   "dependencies": {
-    "antd": "^3.24.3",
     "mdel": "^6.0.1",
-    "react-dom": "^16.11.0"
+    "qs": "^6.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -38,10 +37,13 @@
     "@babel/plugin-transform-typescript": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
     "@types/react": "^16.9.11",
+    "antd": "^3.24.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "history": "^4.10.1",
     "mdel-react": "^6.0.2",
     "parcel-bundler": "^1.12.4",
     "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "rollup": "^1.26.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-typescript2": "^0.24.3",

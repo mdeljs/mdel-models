@@ -2,6 +2,7 @@ import * as React from "react";
 import {observe} from "mdel-react";
 import ItemModel from "../../es/item";
 
+
 @observe
 export default class ItemExample extends React.Component{
   sItem = new ItemModel({
@@ -19,7 +20,7 @@ export default class ItemExample extends React.Component{
 
   render() {
     return <div>
-      <h3>{this.sItem.data.title}</h3>
+      <h4>{this.sItem.data.title}</h4>
       <div>{this.sItem.data.content}</div>
     </div>
   }
