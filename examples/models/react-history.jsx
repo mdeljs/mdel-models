@@ -15,7 +15,7 @@ export default class ReactHistoryExample extends React.Component{
       search:{this.sHistory.data.search}<br/>
 
       <a onClick={()=>{
-        this.sHistory.changeUrl('/user?page=1');
+        this.sHistory.changeUrl(`/time/${Date.now()}?page=1`);
       }}>changeUrl</a>&emsp;
       <a onClick={()=>{
         this.sHistory.changeQuery({
