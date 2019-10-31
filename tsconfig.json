@@ -2,9 +2,9 @@
   "compilerOptions": {
     "rootDir": "./",
     "target": "es5",
-    "declaration":true,
+    "declaration":false,
     "moduleResolution": "node",
-    "experimentalDecorators": false,
+    "experimentalDecorators": true,
     "strictNullChecks": true,
     "strict": false,
     "allowJs": false,
