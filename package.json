@@ -40,7 +40,7 @@
     "antd": "^3.24.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "history": "^4.10.1",
-    "mdel-react": "^6.0.2",
+    "mdel-react": "^6.0.3",
     "parcel-bundler": "^1.12.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
