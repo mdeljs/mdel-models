@@ -33,35 +33,37 @@ function __extends(d, b) {
 var HistoryModel = /** @class */ (function (_super) {
     __extends(HistoryModel, _super);
     function HistoryModel(history) {
-        var _this = _super.call(this, {
-            pathname: '',
-            search: '',
-            query: {}
-        }) || this;
+        var _this = _super.call(this, getData(history.location)) || this;
         _this.history = history;
-        _this.updateData(_this.history.location);
-        _this.history.listen(function (location) { return _this.updateData(location); });
+        _this.history.listen(function (location) {
+            _this.setData(getData(location));
+        });
+        function getData(location) {
+            var search = location.search;
+            var query = qs.parse(search.replace(/^\?/, ''));
+            return {
+                search: search, query: query,
+                pathname: location.pathname
+            };
+        }
         return _this;
     }
-    HistoryModel.prototype.changeQuery = function (query) {
+    HistoryModel.getIsSearchChange = function (store) {
+        return (store instanceof HistoryModel &&
+            store.prevData.pathname === store.data.pathname &&
+            store.prevData.search !== store.data.search);
+    };
+    HistoryModel.prototype.setQuery = function (query) {
         this.history.push({
             pathname: this.data.pathname,
             search: qs.stringify(query)
         });
     };
-    HistoryModel.prototype.changeUrl = function (url) {
+    HistoryModel.prototype.setUrl = function (url) {
         this.history.push(url);
     };
     HistoryModel.prototype.goBack = function () {
         this.history.goBack();
-    };
-    HistoryModel.prototype.updateData = function (location) {
-        var query = qs.parse(location.search.replace(/^\?/, ''));
-        this.setData({
-            pathname: location.pathname,
-            search: location.search,
-            query: query
-        });
     };
     return HistoryModel;
 }(Model));

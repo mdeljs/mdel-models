@@ -6,7 +6,7 @@ export default class ItemModel<T extends object> extends Model<T> {
     super(data);
   }
 
-  updateData(data: Partial<T>) {
-    this.setData(data)
+  setData(data: Partial<T>) {
+    super.setData(data)
   }
 }

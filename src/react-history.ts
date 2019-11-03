@@ -3,54 +3,58 @@ import qs from 'qs'
 
 
 interface IQuery {
-    [index: string]: string
+  [index: string]: string | number
 }
 
 interface IData {
-    pathname: string,
-    search: string,
-    query: IQuery
+  pathname: string,
+  search: string,
+  query: IQuery
 }
 
 
 export default class HistoryModel extends Model<IData> {
+  static getIsSearchChange(store: Model<any>) {
+    return (
+      store instanceof HistoryModel &&
+      store.prevData.pathname === store.data.pathname &&
+      store.prevData.search !== store.data.search
+    )
+  }
+
   history;
 
   constructor(history) {
-    super({
-      pathname: '',
-      search: '',
-      query: {}
-    });
+    super(getData(history.location));
 
     this.history = history;
+    this.history.listen(location => {
+      this.setData(getData(location))
+    });
 
-    this.updateData(this.history.location);
-    this.history.listen(location => this.updateData(location));
+    function getData(location) {
+      const search = location.search;
+      const query = qs.parse(search.replace(/^\?/, ''));
+
+      return {
+        search, query,
+        pathname: location.pathname
+      }
+    }
   }
 
-  changeQuery(query: IQuery) {
+  setQuery(query: IQuery) {
     this.history.push({
       pathname: this.data.pathname,
       search: qs.stringify(query)
     })
   }
 
-  changeUrl(url: string) {
+  setUrl(url: string) {
     this.history.push(url)
   }
 
   goBack() {
     this.history.goBack();
-  }
-
-  private updateData(location) {
-    const query = qs.parse(location.search.replace(/^\?/,''));
-
-    this.setData({
-      pathname: location.pathname,
-      search: location.search,
-      query
-    })
   }
 }

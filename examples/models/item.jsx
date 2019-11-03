@@ -12,7 +12,7 @@ export default class ItemExample extends React.Component{
 
   componentDidMount() {
     setTimeout(()=>{
-      this.sItem.updateData({
+      this.sItem.setData({
         content:'新内容'
       })
     },3000);

@@ -34,8 +34,8 @@ var ItemModel = /** @class */ (function (_super) {
     function ItemModel(data) {
         return _super.call(this, data) || this;
     }
-    ItemModel.prototype.updateData = function (data) {
-        this.setData(data);
+    ItemModel.prototype.setData = function (data) {
+        _super.prototype.setData.call(this, data);
     };
     return ItemModel;
 }(Model));

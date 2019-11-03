@@ -1,6 +1,6 @@
 import { Model } from 'mdel';
 interface IQuery {
-    [index: string]: string | number;
+    [index: string]: string;
 }
 interface IData {
     pathname: string;
@@ -14,5 +14,6 @@ export default class HistoryModel extends Model<IData> {
     setQuery(query: IQuery): void;
     setUrl(url: string): void;
     goBack(): void;
+    private updateData;
 }
 export {};

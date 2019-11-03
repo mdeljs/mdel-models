@@ -3,11 +3,11 @@ import {createBrowserHistory} from "history";
 import HistoryModel from "../../es/react-history";
 import {observe} from "mdel-react";
 
-const historyStore = new HistoryModel(createBrowserHistory());
+const history = createBrowserHistory();
 
 @observe
 export default class ReactHistoryExample extends React.Component{
-  sHistory = historyStore;
+  sHistory = new HistoryModel(history);
 
   render() {
     return <div>
@@ -15,10 +15,10 @@ export default class ReactHistoryExample extends React.Component{
       search:{this.sHistory.data.search}<br/>
 
       <a onClick={()=>{
-        this.sHistory.changeUrl(`/time/${Date.now()}?page=1`);
-      }}>changeUrl</a>&emsp;
+        this.sHistory.setUrl(`/time/${Date.now()}?page=1`);
+      }}>setUrl</a>&emsp;
       <a onClick={()=>{
-        this.sHistory.changeQuery({
+        this.sHistory.setQuery({
           page:2
         })
       }}>changeQuery</a>

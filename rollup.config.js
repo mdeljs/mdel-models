@@ -5,6 +5,7 @@ import pkg from './package.json'
 
 const models = [
   'item',
+  'list',
   'modal',
   'react-history'
 ];

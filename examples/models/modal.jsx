@@ -11,7 +11,7 @@ export default class ModalExample extends React.Component {
 
   componentStoreChange(store){
     if(ModalModel.getIsShow(store)){
-      alert('展示了弹窗');
+      alert('打开了弹窗');
     }
   }
 
