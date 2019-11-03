@@ -17,7 +17,7 @@ export default class ListExample extends React.Component {
           {id: 1, content: '1'},
           {id: 2, content: '2'}
         ])
-      })
+      },2000)
     } catch (e) {
       this.sList.setLoading(false)
     }
