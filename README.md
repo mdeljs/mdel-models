@@ -9,16 +9,7 @@
 
 **mdel** 是一个数据管理器，文档 [链接](https://github.com/mdeljs/mdel)
 
-## 使用
-
-* examples目录下的为示例代码.查看演示,终端执行以下命令,然后打开浏览器,输入http://localhost:1234
-
-```shell script
-npm install
-npm start
-```
-
-## 示例
+## 使用示例
 
 ```jsx harmony
 import React from "react";
@@ -49,10 +40,20 @@ class HistoryExample extends React.Component{
   }
 }
 ```
+
+## 说明
+
+* examples目录下的为示例代码.查看演示,终端执行以下命令,然后打开浏览器,输入http://localhost:1234
+
+```shell script
+npm install
+npm start
+```
+
 ## API
 
 ### ItemModel
-
+项模型
 ```typescript jsx
 import {Model} from "mdel";
 class ItemModel<T extends object> extends Model<T> {
