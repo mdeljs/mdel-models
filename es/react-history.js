@@ -30,9 +30,9 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
-var HistoryModel = /** @class */ (function (_super) {
-    __extends(HistoryModel, _super);
-    function HistoryModel(history) {
+var ReactHistoryModel = /** @class */ (function (_super) {
+    __extends(ReactHistoryModel, _super);
+    function ReactHistoryModel(history) {
         var _this = _super.call(this, getData(history.location)) || this;
         _this.history = history;
         _this.history.listen(function (location) {
@@ -48,24 +48,24 @@ var HistoryModel = /** @class */ (function (_super) {
         }
         return _this;
     }
-    HistoryModel.getIsSearchChange = function (store) {
-        return (store instanceof HistoryModel &&
+    ReactHistoryModel.getIsSearchChange = function (store) {
+        return (store instanceof ReactHistoryModel &&
             store.prevData.pathname === store.data.pathname &&
             store.prevData.search !== store.data.search);
     };
-    HistoryModel.prototype.setQuery = function (query) {
+    ReactHistoryModel.prototype.setQuery = function (query) {
         this.history.push({
             pathname: this.data.pathname,
             search: qs.stringify(query)
         });
     };
-    HistoryModel.prototype.setUrl = function (url) {
+    ReactHistoryModel.prototype.setUrl = function (url) {
         this.history.push(url);
     };
-    HistoryModel.prototype.goBack = function () {
+    ReactHistoryModel.prototype.goBack = function () {
         this.history.goBack();
     };
-    return HistoryModel;
+    return ReactHistoryModel;
 }(Model));
 
-export default HistoryModel;
+export default ReactHistoryModel;

@@ -7,7 +7,7 @@ interface IData {
     search: string;
     query: IQuery;
 }
-export default class HistoryModel extends Model<IData> {
+export default class ReactHistoryModel extends Model<IData> {
     static getIsSearchChange(store: Model<any>): boolean;
     history: any;
     constructor(history: any);
