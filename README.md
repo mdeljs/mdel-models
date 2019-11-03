@@ -5,10 +5,6 @@
 
 * 安装：`npm install mdel-models --save`
 
-## mdel
-
-**mdel** 是一个数据管理器，文档 [链接](https://github.com/mdeljs/mdel)
-
 ## 使用示例
 
 ```jsx harmony
