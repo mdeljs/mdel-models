@@ -13,10 +13,10 @@ interface IData {
 }
 
 
-export default class ReactHistoryModel extends Model<IData> {
+export default class HistoryModel extends Model<IData> {
   static getIsSearchChange(store: Model<any>) {
     return (
-      store instanceof ReactHistoryModel &&
+      store instanceof HistoryModel &&
       store.prevData.pathname === store.data.pathname &&
       store.prevData.search !== store.data.search
     )

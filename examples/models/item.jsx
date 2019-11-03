@@ -1,6 +1,6 @@
 import React from "react";
 import {observe} from "mdel-react";
-import ItemModel from "../../es/item";
+import {ItemModel} from "../../es";
 
 
 @observe

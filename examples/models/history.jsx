@@ -1,12 +1,12 @@
 import React from "react";
 import {createBrowserHistory} from "history";
-import HistoryModel from "../../es/react-history";
+import {HistoryModel} from "../../es";
 import {observe} from "mdel-react";
 
 const history = createBrowserHistory();
 
 @observe
-export default class ReactHistoryExample extends React.Component{
+export default class HistoryExample extends React.Component{
   sHistory = new HistoryModel(history);
 
   render() {

@@ -11,26 +11,25 @@
 
 ## 使用
 
-* 查看演示
+* examples目录下的为示例代码.查看演示,终端执行以下命令,然后打开浏览器,输入http://localhost:1234
 
 ```shell script
+npm install
 npm start
 ```
-
-打开浏览器,输入http://localhost:1234
 
 ## 示例
 
 ```jsx harmony
 import React from "react";
 import {createBrowserHistory} from "history";
-import HistoryModel from "mdel-models/react-history";
+import {HistoryModel} from "mdel-models";
 import {observe} from "mdel-react";
 
 const history = createBrowserHistory();
 
 @observe
-class ReactHistoryExample extends React.Component{
+class HistoryExample extends React.Component{
   sHistory = new HistoryModel(history);
 
   render() {
@@ -64,7 +63,7 @@ class ItemModel<T extends object> extends Model<T> {
 ```
 
 ### ListModel
-
+列表模型
 ```typescript jsx
 import {Model} from "mdel";
 interface ICounts {
@@ -98,7 +97,7 @@ class ListModel extends Model<IData> {
 ```
 
 ### ModalModel
-
+弹窗模型
 ```typescript jsx
 import {Model} from "mdel";
 interface IData {
@@ -107,7 +106,7 @@ interface IData {
         [index: string]: any;
     };
 }
-export default class ModalModel extends Model<IData> {
+class ModalModel extends Model<IData> {
     //展示弹窗
     static show(component: any, payload?: {}): void;
     //隐藏弹窗
@@ -118,9 +117,10 @@ export default class ModalModel extends Model<IData> {
 }
 ```
 
-### ReactHistoryModel
-
+### HistoryModel
+history模型
 ```typescript jsx
+import {Model} from "mdel";
 interface IQuery {
     [index: string]: string | number;
 }
@@ -129,7 +129,7 @@ interface IData {
     search: string;
     query: IQuery;
 }
-class ReactHistoryModel extends Model<IData> {
+class HistoryModel extends Model<IData> {
     //获得是否search改变
     static getIsSearchChange(store: Model<any>): boolean;
     history: any;

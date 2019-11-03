@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Modal} from "antd";
 import {observe} from "mdel-react";
-import ModalModel from "../../es/modal";
+import {ModalModel} from "../../es";
 
 import 'antd/dist/antd.css'
 

@@ -4,7 +4,7 @@ import {render} from 'react-dom'
 import ItemExample from "./models/item";
 import ListExample from "./models/list";
 import ModalExample from "./models/modal";
-import ReactHistoryExample from "./models/react-history";
+import HistoryExample from "./models/history";
 
 
 function Root() {
@@ -20,8 +20,8 @@ function Root() {
     <h3>ModalModel:</h3>
     <ModalExample/>
     <hr/>
-    <h3>ReactHistory:</h3>
-    <ReactHistoryExample/>
+    <h3>HistoryModel:</h3>
+    <HistoryExample/>
   </div>
 }
 

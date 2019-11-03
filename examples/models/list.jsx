@@ -1,7 +1,7 @@
 import React from "react";
 import {observe} from "mdel-react";
 import {Table} from 'antd'
-import ListModel from "../../es/list";
+import {ListModel} from "../../es";
 
 import 'antd/dist/antd.css'
 
