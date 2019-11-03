@@ -11,7 +11,7 @@ const models = [
 ];
 const overrideTsConfig = {
   compilerOptions: {
-    "rootDir": "src",
+    "rootDir": "./src",
     declaration: true
   }
 };
