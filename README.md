@@ -53,6 +53,92 @@ class ReactHistoryExample extends React.Component{
 ## API
 
 ### ItemModel
+
+```typescript jsx
+import {Model} from "mdel";
+class ItemModel<T extends object> extends Model<T> {
+    constructor(data: T);
+    //设置数据
+    setData(data: Partial<T>): void;
+}
+```
+
 ### ListModel
+
+```typescript jsx
+import {Model} from "mdel";
+interface ICounts {
+    //当前页
+    currentPage: number;
+    //每页条数
+    pageSize: number;
+    //总共条数
+    totalNum: number;
+    [index: string]: any;
+}
+interface IData {
+    loading: boolean;
+    counts: ICounts;
+    items: any[];
+    //选择的行keys
+    selected: any[];
+    //展开的行keys
+    expanded: any[];
+}
+class ListModel extends Model<IData> {
+    itemKey: any;
+    constructor(itemKey?: string);
+    setLoading(status: boolean): void;
+    setItems(items: any, counts?: ICounts): void;
+    deleteItems(keys: any[]): void;
+    updateItems(keys: any, data: any): void;
+    setSelected: (keys: any[]) => void;
+    setExpanded: (keys: any[]) => void;
+}
+```
+
 ### ModalModel
+
+```typescript jsx
+import {Model} from "mdel";
+interface IData {
+    visible: boolean;
+    payload: {
+        [index: string]: any;
+    };
+}
+export default class ModalModel extends Model<IData> {
+    //展示弹窗
+    static show(component: any, payload?: {}): void;
+    //隐藏弹窗
+    static hide(component: any): void;
+    //获得弹窗是否展示
+    static getIsShow(store: Model): boolean;
+    constructor();
+}
+```
+
 ### ReactHistoryModel
+
+```typescript jsx
+interface IQuery {
+    [index: string]: string | number;
+}
+interface IData {
+    pathname: string;
+    search: string;
+    query: IQuery;
+}
+class ReactHistoryModel extends Model<IData> {
+    //获得是否search改变
+    static getIsSearchChange(store: Model<any>): boolean;
+    history: any;
+    constructor(history: any);
+    //设置query
+    setQuery(query: IQuery): void;
+    //设置url
+    setUrl(url: string): void;
+    //返回
+    goBack(): void;
+}
+```
