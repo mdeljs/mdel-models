@@ -52,7 +52,10 @@ npm start
 项模型
 ```typescript jsx
 import {Model} from "mdel";
-class ItemModel<T extends object> extends Model<T> {
+declare interface IItemData {
+    [index: string]: any;
+}
+declare class ItemModel<T extends IItemData> extends Model<T> {
     constructor(data: T);
     //设置数据
     setData(data: Partial<T>): void;
@@ -63,7 +66,7 @@ class ItemModel<T extends object> extends Model<T> {
 列表模型
 ```typescript jsx
 import {Model} from "mdel";
-interface ICounts {
+declare interface IListCounts {
     //当前页
     currentPage: number;
     //每页条数
@@ -72,20 +75,20 @@ interface ICounts {
     totalNum: number;
     [index: string]: any;
 }
-interface IData {
+declare interface IListData {
     loading: boolean;
-    counts: ICounts;
+    counts: IListCounts;
     items: any[];
     //选择的行keys
     selected: any[];
     //展开的行keys
     expanded: any[];
 }
-class ListModel extends Model<IData> {
+declare class ListModel extends Model<IListData> {
     itemKey: any;
     constructor(itemKey?: string);
     setLoading(status: boolean): void;
-    setItems(items: any, counts?: ICounts): void;
+    setItems(items: any, counts?: IListCounts): void;
     deleteItems(keys: any[]): void;
     updateItems(keys: any, data: any): void;
     setSelected: (keys: any[]) => void;
@@ -97,13 +100,13 @@ class ListModel extends Model<IData> {
 弹窗模型
 ```typescript jsx
 import {Model} from "mdel";
-interface IData {
+declare interface IModalData {
     visible: boolean;
     payload: {
         [index: string]: any;
     };
 }
-class ModalModel extends Model<IData> {
+declare class ModalModel extends Model<IModalData> {
     //展示弹窗
     static show(component: any, payload?: {}): void;
     //隐藏弹窗
@@ -118,21 +121,21 @@ class ModalModel extends Model<IData> {
 history模型
 ```typescript jsx
 import {Model} from "mdel";
-interface IQuery {
+declare interface IHistoryQuery {
     [index: string]: string | number;
 }
-interface IData {
+declare interface IHistoryData {
     pathname: string;
     search: string;
-    query: IQuery;
+    query: IHistoryQuery;
 }
-class HistoryModel extends Model<IData> {
+declare class HistoryModel extends Model<IHistoryData> {
     //获得是否search改变
     static getIsSearchChange(store: Model<any>): boolean;
     history: any;
     constructor(history: any);
     //设置query
-    setQuery(query: IQuery): void;
+    setQuery(query: IHistoryQuery): void;
     //设置url
     setUrl(url: string): void;
     //返回
