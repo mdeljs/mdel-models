@@ -13,7 +13,7 @@ function getModalStore(component) {
     .find(store => store instanceof ModalModel)
 }
 
-export default class ModalModel extends Model<IModalData> {
+export class ModalModel extends Model<IModalData> {
   static show(component, payload = {}) {
     const modalStore = getModalStore(component);
     if (modalStore) {

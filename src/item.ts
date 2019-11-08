@@ -4,7 +4,7 @@ export interface IItemData {
   [index: string]: any
 }
 
-export default class ItemModel<T extends IItemData> extends Model<T> {
+export class ItemModel<T extends IItemData> extends Model<T> {
   constructor(data: T) {
     super(data);
   }

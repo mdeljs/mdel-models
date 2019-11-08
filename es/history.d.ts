@@ -7,7 +7,7 @@ export interface IHistoryData {
     search: string;
     query: IHistoryQuery;
 }
-export default class HistoryModel extends Model<IHistoryData> {
+export declare class HistoryModel extends Model<IHistoryData> {
     static getIsSearchChange(store: Model<any>): boolean;
     history: any;
     constructor(history: any);

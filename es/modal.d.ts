@@ -5,7 +5,7 @@ export interface IModalData {
         [index: string]: any;
     };
 }
-export default class ModalModel extends Model<IModalData> {
+export declare class ModalModel extends Model<IModalData> {
     static show(component: any, payload?: {}): void;
     static hide(component: any): void;
     static getIsShow(store: Model): boolean;

@@ -18,7 +18,7 @@ interface IListData {
   expanded: any[]
 }
 
-export default class ListModel extends Model<IListData> {
+export class ListModel extends Model<IListData> {
   itemKey;
 
   constructor(itemKey = 'id') {

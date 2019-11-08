@@ -1,6 +1,6 @@
 {
   "name": "mdel-models",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "一些数据模型",
   "license": "MIT",
   "repository": "github:mdeljs/mdel-models",

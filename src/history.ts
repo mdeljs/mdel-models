@@ -13,7 +13,7 @@ export interface IHistoryData {
 }
 
 
-export default class HistoryModel extends Model<IHistoryData> {
+export class HistoryModel extends Model<IHistoryData> {
   static getIsSearchChange(store: Model<any>) {
     return (
       store instanceof HistoryModel &&

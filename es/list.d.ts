@@ -12,7 +12,7 @@ interface IListData {
     selected: any[];
     expanded: any[];
 }
-export default class ListModel extends Model<IListData> {
+export declare class ListModel extends Model<IListData> {
     itemKey: any;
     constructor(itemKey?: string);
     setLoading(status: boolean): void;
