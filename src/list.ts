@@ -1,7 +1,7 @@
 import {Model} from "mdel";
 
 interface IListCounts {
-  currentPage: number,
+  pageNo: number,
   pageSize: number,
   totalNum: number,
 
@@ -27,7 +27,7 @@ export default class ListModel extends Model<IListData> {
 
       items: [],
       counts: {
-        currentPage: 0,
+        pageNo: 0,
         pageSize: 0,
         totalNum: 0
       },
@@ -49,7 +49,7 @@ export default class ListModel extends Model<IListData> {
   setItems(items, counts: IListCounts = ({} as IListCounts)) {
     this.setData({
       counts: {
-        currentPage: Number(counts.pageNo) || 0,
+        pageNo: Number(counts.pageNo) || 0,
         pageSize: Number(counts.pageSize) || 0,
         totalNum: Number(counts.totalNum) || 0
       },

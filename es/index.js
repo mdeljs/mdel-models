@@ -49,7 +49,7 @@ var ListModel = /** @class */ (function (_super) {
             loading: true,
             items: [],
             counts: {
-                currentPage: 0,
+                pageNo: 0,
                 pageSize: 0,
                 totalNum: 0
             },
@@ -78,7 +78,7 @@ var ListModel = /** @class */ (function (_super) {
         if (counts === void 0) { counts = {}; }
         this.setData({
             counts: {
-                currentPage: Number(counts.pageNo) || 0,
+                pageNo: Number(counts.pageNo) || 0,
                 pageSize: Number(counts.pageSize) || 0,
                 totalNum: Number(counts.totalNum) || 0
             },

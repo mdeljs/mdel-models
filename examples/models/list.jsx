@@ -35,7 +35,7 @@ export default class ListExample extends React.Component {
                   rowKey={this.sList.itemKey}
                   dataSource={this.sList.data.items}
                   pagination={{
-                    current: this.sList.data.counts.currentPage,
+                    current: this.sList.data.counts.pageNo,
                     pageSize: this.sList.data.counts.pageSize,
                     total: this.sList.data.counts.totalNum
                   }}

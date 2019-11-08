@@ -1,6 +1,6 @@
 import { Model } from "mdel";
 interface IListCounts {
-    currentPage: number;
+    pageNo: number;
     pageSize: number;
     totalNum: number;
     [index: string]: any;

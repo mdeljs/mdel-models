@@ -68,7 +68,7 @@ declare class ItemModel<T extends IItemData> extends Model<T> {
 import {Model} from "mdel";
 declare interface IListCounts {
     //当前页
-    currentPage: number;
+    pageNo: number;
     //每页条数
     pageSize: number;
     //总共条数
