@@ -1,18 +1,17 @@
 import { Model } from 'mdel';
-interface IQuery {
+export interface IHistoryQuery {
     [index: string]: string | number;
 }
-interface IData {
+export interface IHistoryData {
     pathname: string;
     search: string;
-    query: IQuery;
+    query: IHistoryQuery;
 }
-export default class HistoryModel extends Model<IData> {
+export default class HistoryModel extends Model<IHistoryData> {
     static getIsSearchChange(store: Model<any>): boolean;
     history: any;
     constructor(history: any);
-    setQuery(query: IQuery): void;
+    setQuery(query: IHistoryQuery): void;
     setUrl(url: string): void;
     goBack(): void;
 }
-export {};

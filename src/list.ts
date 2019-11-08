@@ -1,6 +1,6 @@
 import {Model} from "mdel";
 
-interface ICounts {
+interface IListCounts {
   currentPage: number,
   pageSize: number,
   totalNum: number,
@@ -8,17 +8,17 @@ interface ICounts {
   [index: string]: any
 }
 
-interface IData {
+interface IListData {
   loading: boolean,
 
-  counts: ICounts,
+  counts: IListCounts,
   items: any[],
 
   selected: any[],
   expanded: any[]
 }
 
-export default class ListModel extends Model<IData> {
+export default class ListModel extends Model<IListData> {
   itemKey;
 
   constructor(itemKey = 'id') {
@@ -46,7 +46,7 @@ export default class ListModel extends Model<IData> {
   }
 
 
-  setItems(items, counts: ICounts = ({} as ICounts)) {
+  setItems(items, counts: IListCounts = ({} as IListCounts)) {
     this.setData({
       counts: {
         currentPage: Number(counts.pageNo) || 0,

@@ -1,22 +1,22 @@
 import { Model } from "mdel";
-interface ICounts {
+interface IListCounts {
     currentPage: number;
     pageSize: number;
     totalNum: number;
     [index: string]: any;
 }
-interface IData {
+interface IListData {
     loading: boolean;
-    counts: ICounts;
+    counts: IListCounts;
     items: any[];
     selected: any[];
     expanded: any[];
 }
-export default class ListModel extends Model<IData> {
+export default class ListModel extends Model<IListData> {
     itemKey: any;
     constructor(itemKey?: string);
     setLoading(status: boolean): void;
-    setItems(items: any, counts?: ICounts): void;
+    setItems(items: any, counts?: IListCounts): void;
     deleteItems(keys: any[]): void;
     updateItems(keys: any, data: any): void;
     setSelected: (keys: any[]) => void;

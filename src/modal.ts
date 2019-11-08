@@ -1,6 +1,6 @@
 import {Model} from 'mdel'
 
-interface IData {
+export interface IModalData {
   visible: boolean,
   payload: {
     [index: string]: any
@@ -13,7 +13,7 @@ function getModalStore(component) {
     .find(store => store instanceof ModalModel)
 }
 
-export default class ModalModel extends Model<IData> {
+export default class ModalModel extends Model<IModalData> {
   static show(component, payload = {}) {
     const modalStore = getModalStore(component);
     if (modalStore) {

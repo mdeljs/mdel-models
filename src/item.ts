@@ -1,7 +1,10 @@
 import {Model} from 'mdel'
 
+export interface IItemData {
+  [index: string]: any
+}
 
-export default class ItemModel<T extends object> extends Model<T> {
+export default class ItemModel<T extends IItemData> extends Model<T> {
   constructor(data: T) {
     super(data);
   }
