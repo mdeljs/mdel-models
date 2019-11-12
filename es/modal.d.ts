@@ -9,5 +9,6 @@ export declare class ModalModel extends Model<IModalData> {
     static show(component: any, payload?: {}): void;
     static hide(component: any): void;
     static getIsShow(store: Model): boolean;
+    static getIsVisibleChange(store: Model): boolean;
     constructor();
 }

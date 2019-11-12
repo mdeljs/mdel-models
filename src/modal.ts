@@ -34,6 +34,7 @@ export class ModalModel extends Model<IModalData> {
     }
   }
 
+  //todo 不推荐 下个大版本移除
   static getIsShow(store: Model) {
     return (
       store instanceof ModalModel &&
@@ -41,6 +42,14 @@ export class ModalModel extends Model<IModalData> {
       store.data.visible
     )
   }
+
+  static getIsVisibleChange(store: Model) {
+    return (
+      store instanceof ModalModel &&
+      store.prevData.visible !== store.data.visible
+    )
+  }
+
 
   constructor() {
     super({

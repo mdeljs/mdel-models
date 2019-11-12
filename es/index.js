@@ -145,10 +145,15 @@ var ModalModel = /** @class */ (function (_super) {
             });
         }
     };
+    //todo 不推荐 下个大版本移除
     ModalModel.getIsShow = function (store) {
         return (store instanceof ModalModel &&
             store.prevData.visible !== store.data.visible &&
             store.data.visible);
+    };
+    ModalModel.getIsVisibleChange = function (store) {
+        return (store instanceof ModalModel &&
+            store.prevData.visible !== store.data.visible);
     };
     return ModalModel;
 }(Model));

@@ -111,8 +111,8 @@ declare class ModalModel extends Model<IModalData> {
     static show(component: any, payload?: {}): void;
     //隐藏弹窗
     static hide(component: any): void;
-    //获得弹窗是否展示
-    static getIsShow(store: Model): boolean;
+    //获得弹窗是否展示改变
+    static getIsVisibleChange(store: Model): boolean;
     constructor();
 }
 ```
