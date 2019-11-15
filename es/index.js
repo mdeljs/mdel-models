@@ -30,6 +30,17 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
 var ItemModel = /** @class */ (function (_super) {
     __extends(ItemModel, _super);
     function ItemModel(data) {
@@ -77,11 +88,7 @@ var ListModel = /** @class */ (function (_super) {
     ListModel.prototype.setItems = function (items, counts) {
         if (counts === void 0) { counts = {}; }
         this.setData({
-            counts: {
-                pageNo: Number(counts.pageNo) || 0,
-                pageSize: Number(counts.pageSize) || 0,
-                totalNum: Number(counts.totalNum) || 0
-            },
+            counts: __assign(__assign({}, counts), { pageNo: Number(counts.pageNo) || 0, pageSize: Number(counts.pageSize) || 0, totalNum: Number(counts.totalNum) || 0 }),
             loading: false,
             items: items || [],
             selected: [],
@@ -98,7 +105,7 @@ var ListModel = /** @class */ (function (_super) {
             }
             return true;
         });
-        this.setData({ items: items, counts: counts });
+        this.setItems(items, counts);
     };
     ListModel.prototype.updateItems = function (keys, data) {
         var _this = this;

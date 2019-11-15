@@ -49,6 +49,7 @@ export class ListModel extends Model<IListData> {
   setItems(items, counts: IListCounts = ({} as IListCounts)) {
     this.setData({
       counts: {
+        ...counts,
         pageNo: Number(counts.pageNo) || 0,
         pageSize: Number(counts.pageSize) || 0,
         totalNum: Number(counts.totalNum) || 0
@@ -73,7 +74,7 @@ export class ListModel extends Model<IListData> {
       return true;
     });
 
-    this.setData({items, counts})
+    this.setItems(items, counts)
   }
 
   updateItems(keys, data) {
