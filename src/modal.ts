@@ -1,6 +1,6 @@
 import {Model} from 'mdel'
 
-export interface IModalData {
+export interface ModalData {
   visible: boolean,
   payload: {
     [index: string]: any
@@ -13,7 +13,7 @@ function getModalStore(component) {
     .find(store => store instanceof ModalModel)
 }
 
-export class ModalModel extends Model<IModalData> {
+export class ModalModel extends Model<ModalData> {
   static show(component, payload = {}) {
     const modalStore = getModalStore(component);
     if (modalStore) {
@@ -32,15 +32,6 @@ export class ModalModel extends Model<IModalData> {
         payload: {}
       });
     }
-  }
-
-  //todo 不推荐 下个大版本移除
-  static getIsShow(store: Model) {
-    return (
-      store instanceof ModalModel &&
-      store.prevData.visible !== store.data.visible &&
-      store.data.visible
-    )
   }
 
   static getIsVisibleChange(store: Model) {

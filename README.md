@@ -52,10 +52,10 @@ npm start
 项模型
 ```typescript jsx
 import {Model} from "mdel";
-declare interface IItemData {
+declare interface ItemData {
     [index: string]: any;
 }
-declare class ItemModel<T extends IItemData> extends Model<T> {
+declare class ItemModel<T extends ItemData> extends Model<T> {
     constructor(data: T);
     //设置数据
     setData(data: Partial<T>): void;
@@ -75,7 +75,7 @@ declare interface IListCounts {
     totalNum: number;
     [index: string]: any;
 }
-declare interface IListData {
+declare interface ListData {
     loading: boolean;
     counts: IListCounts;
     items: any[];
@@ -84,7 +84,7 @@ declare interface IListData {
     //展开的行keys
     expanded: any[];
 }
-declare class ListModel extends Model<IListData> {
+declare class ListModel extends Model<ListData> {
     itemKey: any;
     constructor(itemKey?: string);
     setLoading(status: boolean): void;
@@ -100,13 +100,13 @@ declare class ListModel extends Model<IListData> {
 弹窗模型
 ```typescript jsx
 import {Model} from "mdel";
-declare interface IModalData {
+declare interface ModalData {
     visible: boolean;
     payload: {
         [index: string]: any;
     };
 }
-declare class ModalModel extends Model<IModalData> {
+declare class ModalModel extends Model<ModalData> {
     //展示弹窗
     static show(component: any, payload?: {}): void;
     //隐藏弹窗
@@ -121,24 +121,29 @@ declare class ModalModel extends Model<IModalData> {
 history模型
 ```typescript jsx
 import {Model} from "mdel";
-declare interface IHistoryQuery {
+declare interface HistoryQuery {
     [index: string]: string | number;
 }
-declare interface IHistoryData {
+declare interface HistoryData {
     pathname: string;
     search: string;
-    query: IHistoryQuery;
+    query: HistoryQuery;
 }
-declare class HistoryModel extends Model<IHistoryData> {
+declare class HistoryModel extends Model<HistoryData> {
     //获得是否search改变
     static getIsSearchChange(store: Model<any>): boolean;
     history: any;
     constructor(history: any);
     //设置query
-    setQuery(query: IHistoryQuery): void;
+    setQuery(query: HistoryQuery): void;
     //设置url
     setUrl(url: string): void;
     //返回
     goBack(): void;
 }
 ```
+
+## 更新日志
+
+### 3.0.0
+1. 优化类型命名

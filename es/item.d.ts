@@ -1,8 +1,8 @@
 import { Model } from 'mdel';
-export interface IItemData {
+export interface ItemData {
     [index: string]: any;
 }
-export declare class ItemModel<T extends IItemData> extends Model<T> {
+export declare class ItemModel<T extends ItemData> extends Model<T> {
     constructor(data: T);
     setData(data: Partial<T>): void;
 }

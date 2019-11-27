@@ -2,18 +2,18 @@ import {Model} from 'mdel'
 import qs from 'qs'
 
 
-export interface IHistoryQuery {
+export interface HistoryQuery {
   [index: string]: string | number
 }
 
-export interface IHistoryData {
+export interface HistoryData {
   pathname: string,
   search: string,
-  query: IHistoryQuery
+  query: HistoryQuery
 }
 
 
-export class HistoryModel extends Model<IHistoryData> {
+export class HistoryModel extends Model<HistoryData> {
   static getIsSearchChange(store: Model<any>) {
     return (
       store instanceof HistoryModel &&
@@ -34,7 +34,7 @@ export class HistoryModel extends Model<IHistoryData> {
 
     function getData(location) {
       const search = location.search;
-      const query = qs.parse(search.replace(/^\?/, ''));
+      const query = qs.parse(search, { ignoreQueryPrefix: true });
 
       return {
         search, query,
@@ -43,7 +43,7 @@ export class HistoryModel extends Model<IHistoryData> {
     }
   }
 
-  setQuery(query: IHistoryQuery) {
+  setQuery(query: HistoryQuery) {
     this.history.push({
       pathname: this.data.pathname,
       search: qs.stringify(query)

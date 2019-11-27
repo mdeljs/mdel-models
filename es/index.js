@@ -152,12 +152,6 @@ var ModalModel = /** @class */ (function (_super) {
             });
         }
     };
-    //todo 不推荐 下个大版本移除
-    ModalModel.getIsShow = function (store) {
-        return (store instanceof ModalModel &&
-            store.prevData.visible !== store.data.visible &&
-            store.data.visible);
-    };
     ModalModel.getIsVisibleChange = function (store) {
         return (store instanceof ModalModel &&
             store.prevData.visible !== store.data.visible);
@@ -175,7 +169,7 @@ var HistoryModel = /** @class */ (function (_super) {
         });
         function getData(location) {
             var search = location.search;
-            var query = qs.parse(search.replace(/^\?/, ''));
+            var query = qs.parse(search, { ignoreQueryPrefix: true });
             return {
                 search: search, query: query,
                 pathname: location.pathname

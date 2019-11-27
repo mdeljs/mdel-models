@@ -1,6 +1,6 @@
 {
   "name": "mdel-models",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "一些数据模型",
   "license": "MIT",
   "repository": "github:mdeljs/mdel-models",
@@ -27,7 +27,7 @@
   "module": "es",
   "typings": "es",
   "dependencies": {
-    "mdel": "^6.0.4",
+    "mdel": "^7.0.0",
     "qs": "^6.9.0"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "antd": "^3.24.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "history": "^4.10.1",
-    "mdel-react": "^6.0.5",
+    "mdel-react": "^7.0.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
