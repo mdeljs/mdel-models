@@ -30,14 +30,14 @@ type FormValues<FO extends FormFields> = {
   [P in keyof FO]: FO[P]['value'];
 };
 
-interface FormField {
+export interface FormField {
   value: any,
   error: Validate.ErrorMessage,
   readonly name: string,
   readonly validators: Validate.Validators,
 }
 
-interface FormFields {
+export interface FormFields {
   [index: string]: FormField
 }
 
