@@ -1,6 +1,6 @@
 {
   "name": "mdel-models",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "一些数据模型",
   "license": "MIT",
   "repository": "github:mdeljs/mdel-models",
@@ -39,7 +39,10 @@
     "@types/react": "^16.9.11",
     "antd": "^3.24.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "history": "^4.10.1",
+    "less": "^3.10.3",
     "mdel-react": "^7.0.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.11.0",
