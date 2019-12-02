@@ -17,7 +17,7 @@ declare namespace Validate {
         [index: string]: Rule;
     }
 }
-declare type FormValues<FO extends FormFields> = {
+export declare type FormValues<FO extends FormFields> = {
     [P in keyof FO]: FO[P]['value'];
 };
 export interface FormField {

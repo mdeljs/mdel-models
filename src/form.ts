@@ -26,7 +26,7 @@ namespace Validate {
   }
 }
 
-type FormValues<FO extends FormFields> = {
+export type FormValues<FO extends FormFields> = {
   [P in keyof FO]: FO[P]['value'];
 };
 
