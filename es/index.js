@@ -94,7 +94,7 @@ var ListModel = /** @class */ (function (_super) {
     function ListModel(itemKey) {
         if (itemKey === void 0) { itemKey = 'id'; }
         var _this = _super.call(this, {
-            loading: true,
+            loading: false,
             items: [],
             counts: {
                 pageNo: 0,

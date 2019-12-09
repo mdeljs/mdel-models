@@ -23,7 +23,7 @@ export class ListModel extends Model<ListData> {
 
   constructor(itemKey = 'id') {
     super({
-      loading: true,
+      loading: false,
 
       items: [],
       counts: {

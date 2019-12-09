@@ -145,5 +145,5 @@ declare class HistoryModel extends Model<HistoryData> {
 
 ## 更新日志
 
-### 3.0.3
+### 3.0.4
 1. 优化类型命名
