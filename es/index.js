@@ -277,20 +277,25 @@ var FormModel = /** @class */ (function (_super) {
         this.setValues(initialValues || this.initialValues);
         this.initialValues = this.cloneValues();
     };
-    FormModel.prototype.validateValues = function () {
+    FormModel.prototype.validateValues = function (options) {
         var _this = this;
+        if (options === void 0) { options = {}; }
         var sleep = function (time) { return new Promise(function (resolve) { return setTimeout(resolve, time); }); };
+        var beforeValidate = options.beforeValidate;
         return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
-            var errorMessage, newFields;
+            var errorMessage, newFields, formData;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         errorMessage = null;
                         newFields = {};
+                        formData = beforeValidate ? beforeValidate(this.cloneValues()) : this.cloneValues();
                         this.fieldKeys.forEach(function (key) {
                             var field = _this.data[key];
                             var isRequired = field.validators.length && field.validators[0] && field.validators[0].requiredValidator;
+                            if (!(key in formData))
+                                return;
                             if (!isRequired && !FormModel.rules.required()(field.value) === null)
                                 return;
                             for (var _i = 0, _a = field.validators; _i < _a.length; _i++) {
@@ -309,7 +314,7 @@ var FormModel = /** @class */ (function (_super) {
                         _a.sent();
                         this.setData(newFields);
                         if (errorMessage === null) {
-                            resolve(this.cloneValues());
+                            resolve(formData);
                         }
                         else {
                             reject(errorMessage);

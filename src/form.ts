@@ -45,6 +45,9 @@ export type FormData<F extends FormFields> = F & {
   loading: boolean,
 }
 
+export interface FormValidateOptions<F extends FormFields> {
+  beforeValidate?(formData:FormValues<F>):Partial<FormValues<F>>
+}
 
 export class FormModel<F extends FormFields, K extends keyof F> extends Model<FormData<F>> {
   static rules = {
@@ -123,16 +126,20 @@ export class FormModel<F extends FormFields, K extends keyof F> extends Model<Fo
     this.initialValues = this.cloneValues();
   }
 
-  validateValues(): Promise<FormValues<F>> {
+  validateValues(options:FormValidateOptions<F> = {}): Promise<Partial<FormValues<F>>> {
     const sleep = time => new Promise(resolve => setTimeout(resolve, time));
+    const beforeValidate = options.beforeValidate;
 
     return new Promise(async (resolve, reject) => {
       let errorMessage: Validate.ErrorMessage = null;
       const newFields = {} as Partial<FormData<F>>;
+      const formData = beforeValidate ? beforeValidate(this.cloneValues()): this.cloneValues();
+
       this.fieldKeys.forEach(key => {
         const field = this.data[key];
         const isRequired = field.validators.length && field.validators[0] && field.validators[0].requiredValidator;
 
+        if(!(key in formData)) return;
         if (!isRequired && !FormModel.rules.required()(field.value) === null) return;
         for (let validator of field.validators) {
           const error = validator(field.value);
@@ -150,7 +157,7 @@ export class FormModel<F extends FormFields, K extends keyof F> extends Model<Fo
       await sleep(100);
       this.setData(newFields);
       if (errorMessage === null) {
-        resolve(this.cloneValues());
+        resolve(formData);
       } else {
         reject(errorMessage);
       }
