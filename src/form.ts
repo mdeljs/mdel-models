@@ -46,7 +46,7 @@ export type FormData<F extends FormFields> = F & {
 }
 
 export interface FormValidateOptions<F extends FormFields> {
-  beforeValidate?(formData:FormValues<F>):Partial<FormValues<F>>
+  beforeValidate?(formData:FormValues<F>):FormValues<F>
 }
 
 export class FormModel<F extends FormFields, K extends keyof F> extends Model<FormData<F>> {
@@ -126,7 +126,7 @@ export class FormModel<F extends FormFields, K extends keyof F> extends Model<Fo
     this.initialValues = this.cloneValues();
   }
 
-  validateValues(options:FormValidateOptions<F> = {}): Promise<Partial<FormValues<F>>> {
+  validateValues(options:FormValidateOptions<F> = {}): Promise<FormValues<F>> {
     const sleep = time => new Promise(resolve => setTimeout(resolve, time));
     const beforeValidate = options.beforeValidate;
 
