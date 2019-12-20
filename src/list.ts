@@ -66,7 +66,7 @@ export class ListModel extends Model<ListData> {
     let {items, counts} = this.data;
 
     items = items.filter(item => {
-      if (keys.includes(item[this.itemKey])) {
+      if (item[this.itemKey] !== undefined && keys.includes(item[this.itemKey])) {
         counts.totalNum -= 1;
         return false;
       }
@@ -79,7 +79,7 @@ export class ListModel extends Model<ListData> {
 
   updateItems(keys, data) {
     const items = this.data.items.map(item => {
-      if (keys.includes(item[this.itemKey])) {
+      if (item[this.itemKey] !== undefined && keys.includes(item[this.itemKey])) {
         Object.assign(item, data);
       }
 

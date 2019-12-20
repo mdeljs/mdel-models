@@ -33,7 +33,7 @@ export declare type FormData<F extends FormFields> = F & {
     loading: boolean;
 };
 export interface FormValidateOptions<F extends FormFields> {
-    beforeValidate?(formData: FormValues<F>): Partial<FormValues<F>>;
+    beforeValidate?(formData: FormValues<F>): FormValues<F>;
 }
 export declare class FormModel<F extends FormFields, K extends keyof F> extends Model<FormData<F>> {
     static rules: {
@@ -50,7 +50,7 @@ export declare class FormModel<F extends FormFields, K extends keyof F> extends 
     setLoading(status: any): void;
     setValues(values: Partial<FormValues<F>>): void;
     resetValues(initialValues?: FormValues<F>): void;
-    validateValues(options?: FormValidateOptions<F>): Promise<Partial<FormValues<F>>>;
-    protected cloneValues(): FormValues<F>;
+    validateValues(options?: FormValidateOptions<F>): Promise<FormValues<F>>;
+    cloneValues(): FormValues<F>;
 }
 export {};

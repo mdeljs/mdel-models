@@ -136,7 +136,7 @@ var ListModel = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.data, items = _a.items, counts = _a.counts;
         items = items.filter(function (item) {
-            if (keys.includes(item[_this.itemKey])) {
+            if (item[_this.itemKey] !== undefined && keys.includes(item[_this.itemKey])) {
                 counts.totalNum -= 1;
                 return false;
             }
@@ -147,7 +147,7 @@ var ListModel = /** @class */ (function (_super) {
     ListModel.prototype.updateItems = function (keys, data) {
         var _this = this;
         var items = this.data.items.map(function (item) {
-            if (keys.includes(item[_this.itemKey])) {
+            if (item[_this.itemKey] !== undefined && keys.includes(item[_this.itemKey])) {
                 Object.assign(item, data);
             }
             return item;

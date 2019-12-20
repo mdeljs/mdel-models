@@ -164,7 +164,7 @@ export class FormModel<F extends FormFields, K extends keyof F> extends Model<Fo
     })
   }
 
-  protected cloneValues(): FormValues<F> {
+  cloneValues(): FormValues<F> {
     const result = {} as FormValues<F>;
 
     this.fieldKeys.forEach(key => {
