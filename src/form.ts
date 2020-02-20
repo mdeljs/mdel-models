@@ -140,9 +140,9 @@ export class FormModel<F extends FormFields, K extends keyof F> extends Model<Fo
         const isRequired = field.validators.length && field.validators[0] && field.validators[0].requiredValidator;
 
         if(!(key in formData)) return;
-        if (!isRequired && !FormModel.rules.required()(formData.value) === null) return;
+        if (!isRequired && !FormModel.rules.required()(formData[key]) === null) return;
         for (let validator of field.validators) {
-          const error = validator(formData.value);
+          const error = validator(formData[key]);
 
           newFields[key] = {
             ...field,
