@@ -296,11 +296,11 @@ var FormModel = /** @class */ (function (_super) {
                             var isRequired = field.validators.length && field.validators[0] && field.validators[0].requiredValidator;
                             if (!(key in formData))
                                 return;
-                            if (!isRequired && !FormModel.rules.required()(field.value) === null)
+                            if (!isRequired && !FormModel.rules.required()(formData.value) === null)
                                 return;
                             for (var _i = 0, _a = field.validators; _i < _a.length; _i++) {
                                 var validator = _a[_i];
-                                var error = validator(field.value);
+                                var error = validator(formData.value);
                                 newFields[key] = __assign({}, field);
                                 if (error !== null) {
                                     newFields[key]['error'] = error;
