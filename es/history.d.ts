@@ -1,6 +1,6 @@
 import { Model } from 'mdel';
 export interface HistoryQuery {
-    [index: string]: string | number;
+    [index: string]: string;
 }
 export interface HistoryData {
     pathname: string;

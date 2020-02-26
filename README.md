@@ -122,7 +122,7 @@ history模型
 ```typescript jsx
 import {Model} from "mdel";
 declare interface HistoryQuery {
-    [index: string]: string | number;
+    [index: string]: string;
 }
 declare interface HistoryData {
     pathname: string;
@@ -145,5 +145,5 @@ declare class HistoryModel extends Model<HistoryData> {
 
 ## 更新日志
 
-### 3.0.9
+### 3.0.10
 1. 优化类型命名

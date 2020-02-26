@@ -3,7 +3,7 @@ import qs from 'qs'
 
 
 export interface HistoryQuery {
-  [index: string]: string | number
+  [index: string]: string
 }
 
 export interface HistoryData {
